@@ -1,1 +1,1 @@
-# Speekrate AI
+# SpeekRate AI
