@@ -6,6 +6,7 @@ import { getRandomInterviewCover } from "@/utils";
 
 import DisplayTechIcons from "./display-tech-icons";
 import { Button } from "./ui/button";
+
 const InterviewCard = ({
   interviewId,
   userId,
