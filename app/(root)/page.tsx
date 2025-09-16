@@ -3,12 +3,11 @@ import Link from "next/link";
 
 import InterviewCard from "@/components/interview-card";
 import { Button } from "@/components/ui/button";
-import { dummyInterviews } from "@/constants";
+import { getCurrentUser } from "@/lib/actions/auth.action";
 import {
-  getCurrentUser,
   getInterviewByUserId,
   getLatestInterviews,
-} from "@/lib/actions/auth.action";
+} from "@/lib/actions/general.action";
 
 const Home = async () => {
   const user = await getCurrentUser();
