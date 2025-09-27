@@ -125,7 +125,7 @@ const Agent = ({
         process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!,
         {
           variableValues: {
-            username: userName,
+            username: userName.trim().split(" ")[0],
             userid: userId,
           },
         },
@@ -155,6 +155,13 @@ const Agent = ({
   const isCallInactiveOrFinished =
     callStatus === CallStatus.INACTIVE || callStatus === CallStatus.FINISHED;
 
+  function getInitials(name: string) {
+    if (!name) return "";
+    const parts = name.trim().split(" ");
+    if (parts.length === 1) return parts[0][0].toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+
   return (
     <>
       <div className="call-view">
@@ -174,13 +181,15 @@ const Agent = ({
 
         <div className="card-border">
           <div className="card-content">
-            <Image
-              src="/user-avatar.png"
-              alt="user avatar"
-              width={540}
-              height={540}
-              className="size-[120px] rounded-full object-cover"
-            />
+            {userName ? (
+              <div className="bg-primary-200 flex size-[120px] items-center justify-center rounded-full text-4xl font-bold text-white">
+                {getInitials(userName)}
+              </div>
+            ) : (
+              <div className="flex size-[120px] items-center justify-center rounded-full bg-gray-400 text-4xl font-bold text-white">
+                ?
+              </div>
+            )}
             <h3>{userName}</h3>
           </div>
         </div>
