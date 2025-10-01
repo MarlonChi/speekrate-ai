@@ -1,4 +1,4 @@
-![Cover](./.github/cover.PNG)
+![Cover](./.github/cover.png)
 
 # SpeekRate AI
 
